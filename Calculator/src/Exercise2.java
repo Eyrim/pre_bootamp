@@ -4,24 +4,25 @@ import java.util.Arrays;
 
 public class Exercise2 {
     public static void exercise2() {
-        int[] nums = getRandomNums(2);
+        int[] nums = new int[2];
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        for (int i : nums) {
-            System.out.println(i);
-        }
+        System.out.println("Enter the first number:");
+        nums[0] = Integer.parseInt(scanner.next());
+        System.out.println("Enter the second number:");
+        nums[1] = Integer.parseInt(scanner.next());
 
-        System.out.println("Enter an operation to perform (+, *, -): ");
+        System.out.println("Enter an operation to perform (+, *, -):");
         input = scanner.next();
-        scanner.close();
 
         System.out.println(calculate(input, nums));
+        scanner.close();
     }
 
     private static int[] getRandomNums(int quantity) {
         Random rand = new Random();
-
+    
         return rand.ints(quantity).toArray();
     }
 
