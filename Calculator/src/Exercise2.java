@@ -14,6 +14,7 @@ public class Exercise2 {
 
         System.out.println("Enter an operation to perform (+, *, -): ");
         input = scanner.next();
+        scanner.close();
 
         System.out.println(calculate(input, nums));
     }
