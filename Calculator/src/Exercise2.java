@@ -30,13 +30,11 @@ public class Exercise2 {
         switch (operation) {
             case "+":
                 return Arrays.stream(nums)
-                    .reduce(0, 
-                        (total, i) -> total + i);
+                    .reduce((total, i) -> total + i).getAsInt();
 
             case "*":
                 return Arrays.stream(nums)
-                    .reduce(1, 
-                        (total, i) -> total * i);
+                    .reduce((total, i) -> total * i).getAsInt();
 
             case "-":
                 return Arrays.stream(nums)
