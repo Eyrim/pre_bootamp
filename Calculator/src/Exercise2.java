@@ -29,16 +29,13 @@ public class Exercise2 {
     private static Integer calculate(String operation, int[] nums) {
         switch (operation) {
             case "+":
-                return Arrays.stream(nums)
-                    .reduce((total, i) -> total + i).getAsInt();
+                return new Add().calculate(nums);
 
             case "*":
-                return Arrays.stream(nums)
-                    .reduce((total, i) -> total * i).getAsInt();
+                return new Multiply().calculate(nums);
 
             case "-":
-                return Arrays.stream(nums)
-                    .reduce((total, i) -> total - i).getAsInt();
+                return new Subtract().calculate(nums);
 
             default:
                 return null;
