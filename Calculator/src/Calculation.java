@@ -1,3 +1,5 @@
+import java.util.List;
+
 public interface Calculation {
-    public int calculate(int[] nums);
+    public int calculate(List<Integer> nums);
 }

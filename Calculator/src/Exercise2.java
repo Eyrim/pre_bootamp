@@ -1,10 +1,12 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Exercise2 {
     public static void exercise2() {
         Scanner scanner = new Scanner(System.in);
-        int[] nums = getNumsFromUser(scanner);
+        List<Integer> nums = getNumsFromUser(scanner);
         String input;
 
         System.out.println("Enter an operation to perform (+, *, -):");
@@ -15,16 +17,19 @@ public class Exercise2 {
     }
 
     //TODO: 10/09/2023: Potentially stop using the same scanner across multiple methods? Unsure if bad practice
-    private static int[] getNumsFromUser(Scanner scanner) {
-        int[] nums;
+    private static ArrayList<Integer> getNumsFromUser(Scanner scanner) {
+        ArrayList<Integer> nums = new ArrayList<>();
+        String next;
 
-        System.out.println("How many numbers?");
-        // Create new array for however many numbers user specified
-        nums = new int[Integer.parseInt(scanner.next())];
+        // Get the first input
+        System.out.println("Enter a number:");
+        next = scanner.next().toLowerCase();
 
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println("Enter number: " + (i+1));
-            nums[i] = Integer.parseInt(scanner.next());
+        while (!next.equals("done")) {
+            nums.add(Integer.parseInt(next));
+
+            System.out.println("Enter another number");
+            next = scanner.next().toLowerCase();
         }
 
         return nums;
@@ -36,7 +41,7 @@ public class Exercise2 {
         return rand.ints(quantity).toArray();
     }
 
-    private static Integer calculate(String operation, int[] nums) {
+    private static Integer calculate(String operation, List<Integer> nums) {
         switch (operation) {
             case "+":
                 return new Add().calculate(nums);

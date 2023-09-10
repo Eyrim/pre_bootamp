@@ -1,10 +1,11 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class Add implements Calculation {
     @Override
-    public int calculate(int[] nums) {
-        return Arrays.stream(nums)
+    public int calculate(List<Integer>  nums) {
+        return nums.stream()
                     .reduce((total, i) -> total + i)
-                    .getAsInt();
+                    .get();
     }
 }
