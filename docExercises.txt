@@ -1,0 +1,238 @@
+
+    The term "instance variable" is another name for _non-static field_.
+    The term "class variable" is another name for _static field_.
+    A local variable stores temporary state; it is declared inside a _method_.
+    A variable declared within the opening and closing parenthesis of a method signature is called a _parameter_.
+    What are the eight primitive data types supported by the Java programming language? _byte, char, short, int, long, double, float, bool_
+    Character strings are represented by the class _String_.
+    An _array_ is a container object that holds a fixed number of values of a single type.
+
+
+    Consider the following code snippet.
+
+    arrayOfInts[j] > arrayOfInts[j+1]
+
+    Which operators does the code contain? _>, +_
+    Consider the following code snippet.
+
+    int i = 10;
+    int n = i++%5;
+
+        What are the values of i and n after the code is executed? _i: 11, n: 0_
+        What are the final values of i and n if instead of using the postfix increment operator (i++), you use the prefix version (++i))? _i: 11, n: 1_
+    To invert the value of a boolean, which operator would you use? _!_
+    Which operator is used to compare two values, = or == ? _==_
+    Explain the following code sample: result = someCondition ? value1 : value2; _elvis operator, if someCondition is true, then value1 will be assigned to result, else value2 will be assigned to result_
+
+Change the following program to use compound assignments:
+
+_
+class ArithmeticDemo {
+
+     public static void main (String[] args){
+          
+          int result = 1 + 2; // result is now 3
+          System.out.println(result);
+
+          result -= 1; // result is now 2
+          System.out.println(result);
+
+          result =* 2; // result is now 4
+          System.out.println(result);
+
+          result =/ 2; // result is now 2
+          System.out.println(result);
+
+          result =+ 8; // result is now 10
+          result =% 7; // result is now 3
+          System.out.println(result);
+     }
+}
+_
+
+In the following program, explain why the value "6" is printed twice in a row:
+
+_
+class PrePostDemo {
+    public static void main(String[] args){
+        int i = 3;
+        i++;
+        System.out.println(i);    // "4"
+        ++i;                     
+        System.out.println(i);    // "5"
+        System.out.println(++i);  // "6"
+        System.out.println(i++);  // "6"
+        System.out.println(i);    // "7"
+    }
+}
+
+Because the post-crement operator will only increment after the operation on the right hand has been carried out in a complex expression. In other words it will give the value of i, then increment it, thus printing 6 twice.
+_
+
+
+
+    The most basic control flow statement supported by the Java programming language is the _if_ statement.
+    The _switch_ statement allows for any number of possible execution paths.
+    The _do while_ statement is similar to the while statement, but evaluates its expression at the _end_ of the loop.
+    How do you write an infinite loop using the for statement? _for (; ;)_
+    How do you write an infinite loop using the while statement? _while (true)_
+
+
+
+    Consider the following code snippet.
+
+    if (aNumber >= 0)
+        if (aNumber == 0)
+            System.out.println("first string");
+    else System.out.println("second string");
+    System.out.println("third string");
+
+        What output do you think the code will produce if aNumber is 3? _"third string"_
+        Write a test program containing the previous code snippet; make aNumber 3. What is the output of the program? _"second string" "third string"_ 
+        Is it what you predicted? _No_
+        Explain why the output is what it is; in other words, what is the control flow for the code snippet? _Because when the brackets are ommitted the else clause attaches to the most recent if, despite nesting_
+        Using only spaces and line breaks, reformat the code snippet to make the control flow easier to understand.
+        _
+        public static void main(String[] args) {
+            int aNumber = 3;
+
+            if (aNumber >= 0)
+              if (aNumber == 0)
+                System.out.println("first string");
+                
+              else 
+                System.out.println("second string");
+            
+            System.out.println("third string");
+        }
+        _
+
+        Use braces, { and }, to further clarify the code.
+        _
+        public static void main(String[] args) {
+            int aNumber = 3;
+
+            if (aNumber >= 0) {
+              if (aNumber == 0) {
+                System.out.println("first string");
+              } else {
+                System.out.println("second string");
+              }
+            } 
+            
+            System.out.println("third string");
+        }
+        _
+
+
+
+
+    Use the API documentation to find the answers to the following questions:
+
+        What Integer method can you use to convert an int into a string that expresses the number in hexadecimal? For example, what method converts the integer 65 into the string "41"? java.lang.Integer::toHexString
+
+        What Integer method would you use to convert a string expressed in base 5 into the equivalent int? For example, how would you convert the string "230" into the integer value 65? Show the code you would use to accomplish this task.
+
+        _
+        public static void main(String[] args) {
+          String val = "230"; // base 5
+
+          System.out.println(Integer.parseInt(val, 5));
+        }
+        _
+
+        What Double method can you use to detect whether a floating-point number has the special value Not a Number (NaN)?
+        _Double.isNaN()_
+
+    What is the value of the following expression, and why?
+
+    Integer.valueOf(1).equals(Long.valueOf(1))
+
+    _false, Integer and Long cannot be implicitly cast into each other, therefore the int value of 1 and the long value of 1 are different (probably due to being represented as different binary values due to the increased number of bits)_
+
+
+
+
+    Change MaxVariablesDemo to show minimum values instead of maximum values. You can delete all code related to the variables aChar and aBoolean. What is the output?
+
+    _
+    The largest byte value is -128.
+    The largest short value is -32768.
+    The largest integer value is -2147483648.
+    The largest long value is -9223372036854775808.
+    The largest float value is 1.4E-45.
+    The largest double value is 4.9E-324.
+    _
+
+    Create a program that reads an unspecified number of integer arguments from the command line and adds them together. For example, suppose that you enter the following:
+
+    java Adder 1 3 2 10
+
+    The program should display 16 and then exit. The program should display an error message if the user enters only one argument. You can base your program on ValueOfDemo.
+
+_
+            if (args.length <= 2) {
+            throw new IllegalArgumentException("Needs more args");
+          }
+      
+          System.out.println(
+            Arrays.stream(args)
+                .reduce((total, i) -> total + i)
+                .getAsInt()
+          );
+_
+
+    Create a program that is similar to the previous one but has the following differences:
+        Instead of reading integer arguments, it reads floating-point arguments.
+        It displays the sum of the arguments, using exactly two digits to the right of the decimal point.
+
+    For example, suppose that you enter the following:
+
+    java FPAdder 1 1e2 3.0 4.754
+
+    The program would display 108.75. Depending on your locale, the decimal point might be a comma (,) instead of a period (.).
+
+_
+        if (args.length <= 2) {
+            throw new IllegalArgumentException("Needs more args");
+        }
+
+      
+          System.out.println(
+            String.format(
+                "%.2f",
+
+                Arrays.stream(args)
+                    .reduce((total, i) -> total + i)
+                    .get()
+            )
+        );
+_
+
+
+
+
+    Consider the following class:
+
+    public class IdentifyMyParts {
+        public static int x = 7; 
+        public int y = 3; 
+    }
+
+        What are the class variables? _x_
+
+        What are the instance variables? _y_
+
+        What is the output from the following code:
+
+        IdentifyMyParts a = new IdentifyMyParts();
+        IdentifyMyParts b = new IdentifyMyParts();
+        a.y = 5;
+        b.y = 6;
+        a.x = 1;
+        b.x = 2;
+        System.out.println("a.y = " + a.y); _5_
+        System.out.println("b.y = " + b.y); _6_
+        System.out.println("a.x = " + a.x); _2_
+        System.out.println("b.x = " + b.x); _2_
+        System.out.println("IdentifyMyParts.x = " + IdentifyMyParts.x); _2_
