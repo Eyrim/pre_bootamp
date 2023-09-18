@@ -236,3 +236,67 @@ _
         System.out.println("a.x = " + a.x); _2_
         System.out.println("b.x = " + b.x); _2_
         System.out.println("IdentifyMyParts.x = " + IdentifyMyParts.x); _2_
+
+
+
+What is wrong with the following program? _myRect is never initialised_
+
+The following code creates one array and one string object. How many references to those objects exist after the code executes? Is either object eligible for garbage collection? _2 references neither is eligble because studentName is being used by the array, the value of the array isn't null, it still exists and therefore is not eligible__
+
+How does a program destroy and object that it creates? _It calls the destructor if there is one, else it just removes all of it's references_
+
+_
+pubic class SomethingIsWrong {
+	public static void main(String[] args) {
+		Rectangle myRect = new Rectangle();
+		myRect.width = 40;
+		myRect.height = 50;
+		System.out.println("myRect's area is " + myRect.area());
+	}
+}
+
+
+_
+
+
+Given the following class NumberHolder, write some code that creates an instance of the class, initialises its two member variables and then displays the value of each member variable
+
+_
+public class NumberHolder {
+	public int anInt;
+	public float aFloat;
+}
+
+public class Main {
+	public static void main(String[] args) {	
+		NumberHolder nh = new NumberHolder();
+		nh.anInt = 5;
+		nh.aFloat = 4.0f;
+		
+		System.out.println(nh.anInt);
+		System.out.println(nh.aFloat);
+	}
+}
+
+_
+
+
+The program Problem.java doesn't compile. What do you need to do to make it compile? Why?
+
+_
+	
+Make the inner class a nested class. Because inner classes are static and cannot access instance members of their enclosing class. It never gets a reference
+_
+
+
+Use the Java API documentation for the Box class (in the javax.swing package_ to help you answer the following questions:
+
+what static nested class does Box define: _Box.Filler_
+
+what inner class does Box define: _AccessibleBox_
+
+what is the superclass of Box's inner class: _JComponent_
+
+Which of Box's nested classes can you use from any class: _AccessibleBox_
+
+How do you create an instance of Box's Filler class: _Box.Filler filler = new Box.Filler_
